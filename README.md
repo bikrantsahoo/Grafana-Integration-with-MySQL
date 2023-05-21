@@ -1,4 +1,4 @@
-# Grafana Integration with MySQL DevOps Project
+# Grafana Integration with MySQL 
 
 ## Description
 This project demonstrates the integration of Grafana with a MySQL database to visualize and monitor data. It provides a set of scripts and configurations to automate the deployment and configuration of the Grafana instance, along with connecting it to the MySQL database.
