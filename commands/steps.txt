@@ -1,0 +1,57 @@
+Steps that needs to be followed for this project
+1. create a aws ec2.
+2. install the dependenices on the server
+  yum install docker
+  systemctl start docker
+  systemctl enable docker
+3. Run the yaml file or run the below commands one by one on the server
+
+docker run -d --name=grafana -p 3001:3000 \
+  -v grafana_config:/etc/grafana \
+  -v grafana_data:/var/lib/grafana \
+  -v grafana_logs:/var/log/grafana \
+  grafana/grafana
+ #installing graffana
+
+graffana will be up on the ec2 server on the 3001 port and allow the traffic on all the ports for the server
+
+docker run -d --name=mysqldb -p 3306:3306 -v db_data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=password mysql:latest
+ #installing mysql on ec2
+
+docker exec -it mysqldb bash  #access the mysqldb from the container named mysqldb
+
+#login to the db and create some dummy files
+mysql -u root -p -e "SHOW DATABASES;"
+
+mysql -u root -p -e "create database team;"
+
+mysql -u root -p -e "USE team;"
+
+mysql -u root -p -e "USE team;
+CREATE TABLE person (
+    id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    age INT,
+    email VARCHAR(100)
+);"
+
+
+mysql -u root -p -e "USE team;
+INSERT INTO person (id, first_name, last_name, age, email)
+VALUES (1, 'John', 'Doe', 30, 'john.doe@example.com');
+
+INSERT INTO person (id, first_name, last_name, age, email)
+VALUES (2, 'Jane', 'Smith', 25, 'jane.smith@example.com');"
+
+#data insertion for the table
+
+4.Once this is done then add the data source template on graffana on 3001 port and make the configration changes to mysql as per and post to that save and test and it should be succesful.
+5.then on graffana click on dashboards and under mysql click on code and add the select query to fetch the data from mysql db hosted under the container mysqldb.
+6.Once this is run sucessfully then data should refelct on graffana
+
+yahoooooo!! gotcha !! we ahve completed the project...
+
+
+
+
