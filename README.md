@@ -30,8 +30,9 @@ git clone https://github.com/yourusername/grafana-mysql-integration.git
 ### 3. Start the Stack
 
 ### 4. Access Grafana
-- Open a web browser and visit `http://localhost:3000`.
+- Open a web browser and visit `http://localhost:3000` / on the aws server.
 - Log in with the default credentials (admin/admin).
+- Post to that change the password to your own
 
 ### 5. Configure MySQL Data Source
 - Navigate to "Configuration" > "Data Sources" in the Grafana UI.
