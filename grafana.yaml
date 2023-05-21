@@ -1,0 +1,15 @@
+version: '3'
+services:
+  grafana:
+    container_name: grafana
+    image: grafana/grafana
+    ports:
+      - 3001:3000
+    volumes:
+      - grafana_config:/etc/grafana
+      - grafana_data:/var/lib/grafana
+      - grafana_logs:/var/log/grafana
+volumes:
+  grafana_config:
+  grafana_data:
+  grafana_logs:
